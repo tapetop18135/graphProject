@@ -1,11 +1,14 @@
 <!doctype html>
     <div id="container" style="width: 100%;"></div>
+    
     <script src="https://code.highcharts.com/highcharts.src.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
+    lat = {{data.lat}}
+    lon = {{data.lon}}
     Highcharts.chart('container', {
         title: {
-            text: 'CHART Climate Change Indics TXx 1951 - 2018'
+            text: `CHART Climate Change Indics TXx 1951 - 2018 at lat : ${lat}, lon : ${lon}`
         },
 
         subtitle: {

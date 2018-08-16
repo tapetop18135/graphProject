@@ -24,19 +24,23 @@ def fetchData(lacation,type_use):
 
 class DataPlotTXx(View):
     def get(self, request):
+
         data_list = fetchData('ghcndex_current/GHCND_TXx_1951-2018_RegularGrid_global_2.5x2.5deg_LSmask.nc',["time","Ann","lat","lon"])
         time = data_list["time"]
         AnnUse = data_list["Ann"]
         lat_list = data_list["lat"]
         lon_list = data_list["lon"]
 
+        lat_index = 58
+        lon_index = 13
+
         temp_data = []
         for i ,t in enumerate(time):
             if math.isnan(AnnUse[i][58][13]):
                 pass
             else:
-                temp_data.append(float("{0:.2f}".format(AnnUse[i][58][13])))
-        temp_result = {"time": [int(t) for t in time], "data": temp_data}
+                temp_data.append(float("{0:.2f}".format(AnnUse[i][lat_index][lon_index])))
+        temp_result = {"time": [int(t) for t in time], "data": temp_data, "lat":lat_list[lat_index] , "lon":lon_list[lon_index]}
 
         return render(request,'graphTXx.html',{"data":temp_result})
 
@@ -48,13 +52,16 @@ class DataPlotTNx(View):
         lat_list = data_list["lat"]
         lon_list = data_list["lon"]
 
+        lat_index = 58
+        lon_index = 13
+
         temp_data = []
         for i ,t in enumerate(time):
             if math.isnan(AnnUse[i][58][13]):
                 pass
             else:
                 temp_data.append(float("{0:.2f}".format(AnnUse[i][58][13])))
-        temp_result = {"time": [int(t) for t in time], "data": temp_data}
+        temp_result = {"time": [int(t) for t in time], "data": temp_data, "lat":lat_list[lat_index] , "lon":lon_list[lon_index]}
 
         return render(request,'graphTNx.html',{"data":temp_result})
 

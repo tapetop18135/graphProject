@@ -7,7 +7,11 @@
     <title>Show Graph</title>
 </head>
 <body>
-    <iframe src="http://127.0.0.1:8000/graph/graphtxx" frameborder="0" style="width: 50%; height: 450px; float: left;"></iframe>
-    <iframe src="http://127.0.0.1:8000/graph/graphtnx" frameborder="0" style="width: 50%; height: 450px; float: left;"></iframe>
+    <iframe src="{% url 'TXxGraph'%}" frameborder="0" style="width: 50%; height: 450px; float: left;"></iframe>
+    <iframe src="{% url 'TNxGraph'%}" frameborder="0" style="width: 50%; height: 450px; float: left;"></iframe>
+    <iframe src="{% url 'WorldTXxGraph'%}" frameborder="0" style="width: 50%; height: 450px; float: left;"></iframe>
+    <iframe src="{% url 'WorldTNxGraph'%}" frameborder="0" style="width: 50%; height: 450px; float: left;"></iframe>
+    <!-- <iframe src="http://127.0.0.1:8000/graph/graphtnx" frameborder="0" style="width: 50%; height: 450px; float: left;"></iframe>
+    <iframe src="http://127.0.0.1:8000/graph/graphtnx" frameborder="0" style="width: 50%; height: 450px; float: left;"></iframe> -->
 </body>
 </html>

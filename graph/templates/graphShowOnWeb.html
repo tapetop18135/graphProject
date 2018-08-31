@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show Graph</title>
+    <style>
+        .graph{
+            width: 35%;
+        }
+        .row{
+            clear: both;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>  
+    <div style="text-align: center">
+        <div class="" style="width: 55%; margin: auto" > 
+            <h2>RainFall + Temp Graph</h2>
+            <iframe src="{% url 'RainFall_TempGraph'%}" frameborder="0" style="width: 100%; height: 450px; "></iframe>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <div class="graph" style="display: inline-block">
+                <h2>Tmin Tmax Graph</h2>
+                <iframe src="{% url 'Tmin_Tmax'%}" frameborder="0" style="width: 100%; height: 450px;"></iframe>
+            </div>
+            <div class="graph" style="display: inline-block">
+                <h2>Linear Graph</h2>
+                <iframe src="{% url 'temp_linear_regression'%}" frameborder="0" style="width: 100%; height: 450px;"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div>
+            <!-- <div class="graph" style="display: inline-block">
+                <h2>Average Graph</h2>
+                <iframe src="{% url 'temp_avg10'%}" frameborder="0" style="width: 100%; height: 450px;"></iframe>
+            </div> -->
+            <div class="graph" style="display: inline-block">
+                <h2>Annual Cycle Graph</h2>
+                <iframe src="{% url 'temp_annual_cycle'%}" frameborder="0" style="width: 100%; height: 450px;"></iframe>
+            </div>    
+        </div>
+        
+    </div>
+    
+</body>
+</html>

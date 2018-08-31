@@ -1,0 +1,61 @@
+
+    <div id="container" style="width: 100%;"></div>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+    lat = {{data.lat}}
+    lon = {{data.lon}}
+    
+    
+    
+    Highcharts.chart('container', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: `Monthly Average Temperature lat: ${lat} lon: ${lon}`
+        },
+        subtitle: {
+            text: 'credit : Kmutnb'
+        },
+        xAxis: {
+            categories: {{data.time}}
+        },
+        yAxis: {
+            title: {
+                text: 'Temperature (°C)'
+            },
+            labels: {
+                format: '{value}°C',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 100,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#fff'
+        },
+        tooltip: {
+            shared: true
+        },
+        series: [{
+            name: 'Raw data',
+            data: {{data.data.raw}}
+        }, {
+            type: 'line',
+            name: 'Trend Line',
+            data: {{data.data.trend}},
+            tooltip: {
+                valueSuffix: '°C'
+            }
+        }]
+    });
+
+
+    </script>

@@ -1,0 +1,55 @@
+
+    <div id="container" style="width: 100%;"></div>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        
+    var year_min = {{data.year.min}}
+    var year_max = {{data.year.max}}
+    var lat = {{data.lat}}
+    var lon = {{data.lon}}
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: `Annual Cycle lat: ${lat} lon: ${lon} year: ${year_min} - ${year_max}` 
+        },
+        subtitle: {
+            text: 'credit : Kmutnb'
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Temperature (°C)'
+            },
+            labels: {
+                format: '{value}°C',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 100,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#fff'
+        },
+        series: [{
+            name: `Temperature year: ${year_min} - ${year_max}`,
+            data: {{data.data}},
+            tooltip: {
+                valueSuffix: '°C'
+            }
+        }]
+    });
+    </script>
+
+
